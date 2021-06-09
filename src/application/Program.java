@@ -58,8 +58,8 @@ public class Program {
 					Integer vagas = scan.nextInt();
 					
 					System.out.println("É mobiliado ? Y/N");
-					Boolean ehMobiliado = 
-						scan.next().charAt(0) == 'y' || scan.next().charAt(0) == 'Y' ? true : false;
+					char respostaMobiliado = scan.next().charAt(0);
+					Boolean ehMobiliado = respostaMobiliado == 'y' || respostaMobiliado == 'Y' ? true : false;
 					
 					System.out.println("Informe o status do Apartamento: ");
 					System.out.println("1 - OCUPADO");
@@ -73,8 +73,6 @@ public class Program {
 						default: statusApto = StatusApartamento.OCUPADO; break;
 					};
 					
-					System.out.println(statusApto);
-					
 					System.out.println("Informe o nome do proprietário");
 					String nomeProprietario = scan.next();
 					scan.nextLine();
@@ -87,16 +85,17 @@ public class Program {
 					scan.nextLine();
 					
 					System.out.println("O proprietário reside no apartamento ? Y/N");
-					Boolean ehMorador = 
-						scan.next().charAt(0) == 'y' || scan.next().charAt(0) == 'Y' ? true : false;
+					char respostaReside = scan.next().charAt(0);
+					Boolean ehMorador = respostaReside == 'y' || respostaReside == 'Y' ? true : false;
 					
 					Proprietario proprietario = new Proprietario(nomeProprietario, cpfProprietario, emailProprietario, ehMorador);
 					
 					System.out.println("Deseja cadastrar outros moradores no apartamento ? Y/N");
-					Boolean cadastraMoradores = 
-							scan.next().charAt(0) == 'y' || scan.next().charAt(0) == 'Y' ? true : false;
+					char resposta = scan.next().charAt(0);
+					Boolean continuarCadastrando = resposta == 'y' || resposta == 'Y' ? true : false;
 					
-					if(cadastraMoradores) {
+					if(continuarCadastrando) {
+						
 						System.out.println("Quantos moradores serão cadastrados ?");
 						Integer qtdMoradores = scan.nextInt();
 						
